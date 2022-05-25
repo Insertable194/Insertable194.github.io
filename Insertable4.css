@@ -1,0 +1,609 @@
+/* Doesn't work on:
+
+
+
+
+
+
+
+
+
+
+-JioPhone 2
+
+
+50/51 it works */
+
+
+
+
+
+
+
+/* For mobile phones: */
+
+/* dark mode for the page*/
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+/*Always nice to have*/
+*{box-sizing: border-box;}
+
+/* the variable colors*/
+:root {
+  --grey:rgb(89,89,89);
+  --purple: rgb(204, 0, 255);
+  --bio-height: 43vh;
+}
+
+/* header style*/
+.header {
+  font-family: "Georgia";
+  text-shadow: 5px 5px 2px purple;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 1em;
+  background-color: rgb(0,0,255);
+  top: 0px;
+  left: 0px;
+  width: 99%;
+  position: fixed;
+  height: 30vmax;
+  margin-bottom: 150px;
+  
+}
+
+.header h1, .header p {
+ margin-left: 5rem;
+ /*position: relative;*/
+
+ 
+}
+/*the subheader*/
+.status {
+  font-family: "Verdana";
+  text-shadow: 2px 2px 5px red;
+  
+}
+
+
+/* the profile img in the top left*/
+.header .profile-image {
+  float: left;
+  height: 100%;
+  width: 30%;
+  opacity: 0.4;  
+ }
+
+
+/* topnav style*/
+.topnav {
+  overflow: hidden;
+  background-color: black;
+  border: 1px groove black;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  left: 0px;
+  position: fixed;
+  top: 30vmax;
+  width: 100%;
+  
+
+}
+
+/*Making the paragraphs behave*/
+.topnav p {
+  float: left;
+  display: block;
+  color: green;
+  font-family: "Allan";
+  font-size: 18px;
+  padding: 15px;
+  margin: 5px;
+
+}
+
+/* the hover effect*/
+.topnav p:hover {
+  text-shadow: 3px 3px 3px blue;
+  font-size: 20px;
+  text-decoration-line:  underline;
+  cursor: pointer;
+}
+
+/* the hover effect*/
+.active {
+  text-shadow: 3px 3px 3px blue;
+  font-size: 20px;
+  text-decoration-line:  underline;
+  cursor: pointer;
+}
+
+/*A class to toggle in javascript*/
+.no-disp {
+  display: none;
+}
+
+/* the bio, opened by the > at the left*/
+#bio {
+  font-size: 16pt;
+  position: fixed;
+  background-color: rgb(89,89,89);
+  color: white;
+  height: 100%;
+  padding: 5px;
+  
+  max-width: 100%;
+  font-size: 18px;
+  border: 3px solid var(--purple);
+  color: white;
+  float: left;
+  top: 37vmax;
+  left: 0px;
+  text-shadow: 2px 2px 2px black;
+  animation-name: showedBio;
+  animation-duration: 3s;
+  font-family: Sofia;
+   
+ 
+}
+
+
+/*Used to open the bio*/
+#show-bio {
+  position: fixed;
+  background-color: rgb(89,89,89);
+  color: white;
+  height: 100%;
+  
+  text-align: center;
+  padding: 30vh 15px;
+  font-size: 18px;
+  border: 3px solid var(--purple);
+  color: white;
+  float: left;
+  top: 37vmax;
+  left: 0px;
+  text-shadow: 2px 2px 2px black;
+  animation-name: showedBio;
+  animation-duration: 3s;
+  font-family: Sofia;
+ 
+}
+
+
+/*To show that something can be done if you click this */
+#show-bio:hover {
+  cursor: pointer;
+  text-decoration-line: overline underline;
+
+}
+
+/*animation frames*/
+@keyframes showBio {
+  from {width: 0px;}
+  to {width: 40% ;}
+}
+
+@keyframes showedBio {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/*To hide the bio*/
+#bio-button {
+  padding: 3px;
+  border-radius: 15px;
+  border: 2px groove rgba(0,0,255,0.9);
+  background-color: rgb(0,225,0);
+  color: white;
+  font-family: "Sofia";
+  font-size: 12pt;
+}
+
+#bio-button:hover {
+  background-color: rgb(0,190,0);
+  cursor: pointer;
+}
+
+
+/*A class to toggle in javascript*/
+.tall-cards {
+  width: 60%;
+  float: right;
+
+}
+
+/*Card style*/
+.card {
+  position: relative;
+  top: 35vh;
+
+  display: block;
+  border: 5px solid yellow;
+  float: left;
+  margin:  20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  left: 50px;
+  width: 15.125rem;
+  height: 21.3125rem;
+  text-decoration: none;
+  color: var(--grey);
+  
+  
+}
+
+.card h2 {
+font-family: "Ubuntu"; 
+  text-align: center; 
+}
+
+/*deletes overflow*/
+.card p {
+font-family: "Lora";
+overflow-y: hidden;
+text-overflow: ellipsis;
+word-wrap: break-word;
+word-break: keep-all;
+max-height: 120px;
+
+}
+
+.card img {
+  height: 35%;
+  width: 100%;
+}
+
+.card a {
+  text-decoration: none;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  color: grey;
+  font-size: 12px;
+}
+
+/*You can't go wrong with a hover effect*/
+.card a:hover {
+  text-shadow: 2px 2px 2px blue;
+ 
+}
+
+
+.card:hover {
+  border: none;
+  cursor: not-allowed;
+  box-shadow: 4px 4px 8px 0 yellow;
+}
+
+
+/*to change the background color*/
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid white;
+  position: fixed;
+  right: 0;
+}
+
+/*The dot should be visible in dark mode. Toggle with JS.*/
+.light-dot {
+   height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid black;
+  position: fixed;
+  
+}
+
+/*No exp needed*/
+.dot:hover, .light-dot:hover {
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+}
+
+/*Positions the dot*/
+
+#color-theme {
+  position: absolute;
+  right: 2%;
+  top: 37vh;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 600px) {
+
+}
+
+
+
+
+
+
+@media only screen and (min-width: 768px) {
+
+
+/* header style*/
+.header {
+  font-family: "Georgia";
+  text-shadow: 5px 5px 2px purple;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 2em;
+  background-color: rgb(0,0,255);
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  position: fixed;
+  height: 30%;
+  
+}
+
+
+
+
+/* topnav style*/
+.topnav {
+  overflow: hidden;
+  background-color: black;
+  border: 1px groove black;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  position: fixed;
+  top: 223px;
+  width: 100%;
+  
+
+}
+
+/*Making the paragraphs behave*/
+.topnav p {
+  float: left;
+  display: block;
+  color: green;
+  font-family: "Allan";
+  font-size: 18px;
+  padding: 15px;
+  margin: 5px;
+
+}
+
+/* the hover effect*/
+.topnav p:hover {
+  text-shadow: 3px 3px 3px blue;
+  font-size: 20px;
+  text-decoration-line:  underline;
+  cursor: pointer;
+}
+
+/* the hover effect*/
+.active {
+  text-shadow: 3px 3px 3px blue;
+  font-size: 20px;
+  text-decoration-line:  underline;
+  cursor: pointer;
+}
+
+/*A class to toggle in javascript*/
+.no-disp {
+  display: none;
+}
+
+/* the bio, opened by the > at the left*/
+#bio {
+  font-size: 16pt;
+  position: fixed;
+  background-color: rgb(89,89,89);
+  color: white;
+  height: 100%;
+  padding: 5px;
+  
+  max-width: 40%;
+  font-size: 18px;
+  border: 3px solid var(--purple);
+  color: white;
+  float: left;
+  top: 285px;
+  text-shadow: 2px 2px 2px black;
+  animation-name: showedBio;
+  animation-duration: 3s;
+  font-family: Sofia;
+   
+ 
+}
+
+
+/*Used to open the bio*/
+#show-bio {
+  position: fixed;
+  background-color: rgb(89,89,89);
+  color: white;
+  height: 100%;
+  
+  text-align: center;
+  padding: 30vh 15px;
+  font-size: 18px;
+  border: 3px solid var(--purple);
+  color: white;
+  float: left;
+  top: 285px;
+  text-shadow: 2px 2px 2px black;
+  animation-name: showedBio;
+  animation-duration: 3s;
+  font-family: Sofia;
+ 
+}
+
+
+/*To show that something can be done if you click this */
+#show-bio:hover {
+  cursor: pointer;
+  text-decoration-line: overline underline;
+
+}
+
+/*animation frames*/
+@keyframes showBio {
+  from {width: 0px;}
+  to {width: 40% ;}
+}
+
+@keyframes showedBio {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/*To hide the bio*/
+#bio-button {
+  padding: 3px;
+  border-radius: 15px;
+  border: 2px groove rgba(0,0,255,0.9);
+  background-color: rgb(0,225,0);
+  color: white;
+  font-family: "Sofia";
+  font-size: 12pt;
+}
+
+#bio-button:hover {
+  background-color: rgb(0,190,0);
+  cursor: pointer
+}
+
+
+/*A class to toggle in javascript*/
+.tall-cards {
+  width: 60%;
+  float: right;
+
+}
+
+/*Card style*/
+.card {
+  position: relative;
+  top: 35vh;
+
+  display: block;
+  border: 5px solid yellow;
+  float: left;
+  margin:  20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  left: 50px;
+  width: 242px;
+  height: 341px;
+  text-decoration: none;
+  color: var(--grey);
+  
+  
+}
+
+.card h2 {
+font-family: "Ubuntu"; 
+  text-align: center; 
+}
+
+/*deletes overflow*/
+.card p {
+font-family: "Lora";
+overflow-y: hidden;
+text-overflow: ellipsis;
+word-wrap: break-word;
+word-break: keep-all;
+max-height: 120px;
+
+}
+
+.card img {
+  height: 35%;
+  width: 100%;
+}
+
+.card a {
+  text-decoration: none;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  color: grey;
+  font-size: 12px;
+}
+
+/*You can't go wrong with a hover effect*/
+.card a:hover {
+  text-shadow: 2px 2px 2px blue;
+ 
+}
+
+
+.card:hover {
+  border: none;
+  cursor: not-allowed;
+  box-shadow: 4px 4px 8px 0 yellow;
+}
+
+
+/*to change the background color*/
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid white;
+  position: fixed;
+  right: 0;
+}
+
+/*The dot should be visible in dark mode. Toggle with JS.*/
+.light-dot {
+   height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid black;
+  position: fixed;
+  
+}
+
+/*No exp needed*/
+.dot:hover, .light-dot:hover {
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+}
+
+/*Positions the dot*/
+
+#color-theme {
+  position: absolute;
+  right: 18px;
+  top: 310px;
+} 
+
+}

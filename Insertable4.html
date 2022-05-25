@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<title>Blog file</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allan">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+<link rel="stylesheet" href="Insertable4.css">
+<meta  name="viewport" content="width=device-width, initial-scale=1.0" >
+
+</head>
+<body>
+<!--The div is positioned at the top so the cards go behind
+the header instead of in front of it when you scroll down-->
+  <div id="cards" class="tall-cards">
+  </div>
+
+<!--Header-->
+  <div class = "header">
+    <img src="https://i.stack.imgur.com/34AD2.jpg" class="profile-image" alt="profile picture">
+    <h1>SoulboyVGC </h1>
+    <p class="status">Building the website</p>
+      <span class="dot" id="color-theme"></span>
+  </div>
+
+<!--Topnav-->
+  <div class="topnav">
+    <p id="All" onclick="clearFilter()">All</p>
+    <p id="Programming" onclick="filterCards('Programming')" >Programming</p>
+  </div>
+
+<!--The "Bio"-->
+  <div id="bio" >
+    <p> <span id="bio-button" class="font-effect-fire" onclick="toggleBio()">&#60</span>
+     Hello, my name is Sauban and I'm a home-educated 14 year old living in the UK.  I am currently programming as a hobby and am using this website to
+     track my achievements, whether in programming or otherwise.  
+     
+   </p>
+  
+  </div>
+
+<!--The Bio arrow at the left-->
+  <div id="show-bio" class="no-disp" onclick="toggleBio()">
+     &#62
+  </div>
+<script>
+try {
+"use strict";
+//toggle the bio, using toggle-able classes
+function toggleBio() {
+  let bio = document.getElementById("bio");
+  let btn = document.getElementById("show-bio");
+  let deck = document.getElementById("cards");
+  deck.classList.toggle("tall-cards");
+  btn.classList.toggle("no-disp");
+  bio.classList.toggle("no-disp");
+}
+
+//gives me the ability to create cards in javascript
+function createCard(type, pic, alter, headline, stuff, url){
+  const deck = document.getElementById("cards");
+  const card = document.createElement("div");
+  deck.appendChild(card);
+  card.setAttribute("class", "card");
+  card.classList.add(type);
+  const image = document.createElement("img");
+  card.appendChild(image);
+  image.setAttribute("src", pic);
+  image.setAttribute("alt", alter);
+  const header = document.createElement("h2");
+  card.appendChild(header);
+  const header_txt = document.createTextNode(headline);
+  header.appendChild(header_txt);
+  const info = document.createElement("p");
+  card.appendChild(info);
+  const info_txt = document.createTextNode(stuff);
+  info.appendChild(info_txt);
+  const readMore = document.createElement("a");
+  const readMore_txt = document.createTextNode("Read more...");
+  card.appendChild(readMore);
+  readMore.setAttribute("href", url);
+  readMore.appendChild(readMore_txt);
+}
+
+
+//dark mode
+function colorChangeBody() {
+  let elem = document.body;
+  let dot = document.getElementById("color-theme");
+  dot.classList.toggle("light-dot");
+  elem.classList.toggle("dark-mode");
+  
+}
+
+//gives the dot the ability to control dark mode
+document.getElementById("color-theme").addEventListener("click", colorChangeBody);
+
+//filters the cards
+function filterCards(filter) {
+  const collect = document.getElementsByClassName(filter);
+  const btn = document.getElementById(filter);
+  const top = document.querySelectorAll(".topnav p");
+  const xyz = document.getElementsByClassName("card");
+  for (let i = 0; i < xyz.length; i++) {
+    xyz[i].style.display = "none";
+  }
+  
+  for (let k = 0; k < top.length; k++) {
+    top[k].classList.remove("active");
+   
+  }
+
+  for (let j = 0; j < collect.length; j++) {
+    collect[j].style.display = "block";
+  }
+  btn.classList.add("active");
+
+}
+
+function clearFilter() {
+  const btn = document.getElementById("All");
+  const top = document.querySelectorAll(".topnav p");
+  const xyz = document.getElementsByClassName("card");
+  for (let i = 0; i < xyz.length; i++) {
+    xyz[i].style.display = "block";
+  }
+  for (let k = 0; k < top.length; k++) {
+    top[k].classList.remove("active");
+
+  }
+    btn.classList.add("active");
+
+}
+
+
+
+
+// all the cards
+const test = createCard (
+"All",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+
+const test12 = createCard (
+"Programming",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+
+const test11 = createCard (
+"All",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+const test10 = createCard (
+"Programming",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+const test9 = createCard (
+"All",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+const test8 = createCard (
+"Programming",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+const test7 = createCard (
+"Programming",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+const test6 = createCard (
+"All",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+const test5 = createCard (
+"Programming",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+const test4 = createCard (
+"All",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+const test3 = createCard (
+"Programming",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+const test2 = createCard (
+"All",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+const test1 = createCard (
+"Programming",
+"https://i.stack.imgur.com/34AD2.jpg",
+"alt",
+"Headline",
+"This stuff works! The color is grey because I can't figure out dark mode. Let's see if the span will go off the card. More words, more. And I think it will stay.  ANy other words will be cut off",
+"#"
+);
+
+
+
+}
+catch(err) {document.getElementById("All").innerHTML = err.name + err.message;}
+</script>
+</body>
+</html>
